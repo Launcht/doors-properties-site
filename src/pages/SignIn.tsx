@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useSeo } from '@/lib/seo';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { engine } from '@/lib/engineApi';
@@ -14,6 +15,8 @@ const inputClass =
  * place - the private engine for the team, the buyer portal for everyone else.
  */
 const SignIn: React.FC = () => {
+  useSeo({ title: 'Sign in | DOORS Properties', description: 'Sign in to your DOORS account.', noindex: true });
+
   const { user, signIn, signUp } = useAuth();
   const navigate = useNavigate();
   const [mode, setMode] = useState<'signin' | 'register'>('signin');

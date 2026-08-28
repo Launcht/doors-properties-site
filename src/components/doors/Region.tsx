@@ -13,8 +13,8 @@ const Region: React.FC = () => {
   return (
     <section className="relative">
       <div className="relative h-[60vh] min-h-[460px] overflow-hidden">
-        <img src={REGION_IMG} alt="The Garden Route coastline" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-[#2C2C2C]/45" />
+        <img src={REGION_IMG} alt="The Garden Route coastline" width={1600} height={893} loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-[#2C2C2C]/60 sm:bg-[#2C2C2C]/45" />
         <div className="relative h-full flex items-center justify-center text-center px-6">
           <Reveal>
             <div className="max-w-2xl">

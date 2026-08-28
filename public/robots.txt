@@ -1,14 +1,39 @@
-User-agent: Googlebot
-Allow: /
+# doors-properties.com
 
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
+# The private surfaces. These are behind auth, but a crawler that finds a link
+# to one should not attempt it and must never index it.
 User-agent: *
 Allow: /
+Disallow: /portal
+Disallow: /studio
+Disallow: /signin
+Disallow: /renders/
+
+# AI answer engines are allowed deliberately. DOORS is a brokerage nobody has
+# heard of yet, so being quotable in an AI answer is worth more than the
+# scraping is worth withholding. Revisit only if the client asks.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://doors-properties.com/sitemap.xml

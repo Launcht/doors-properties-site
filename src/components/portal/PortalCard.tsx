@@ -12,7 +12,7 @@ interface Props {
 const PortalCard: React.FC<Props> = ({ property: p, saved, onToggleSave, onOpen }) => (
   <div className="group">
     <button onClick={onOpen} className="relative block w-full overflow-hidden aspect-[4/3] bg-[#2C2C2C]/5 text-left">
-      <img src={p.image} alt={p.title} className="w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105" />
+      <img src={p.image} alt={p.title} loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105" />
       {p.private && (
         <span className="absolute top-3 left-3 text-[9px] tracking-[0.2em] uppercase bg-[#2C2C2C] text-[#C9A961] px-2.5 py-1">
           Private

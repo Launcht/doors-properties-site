@@ -89,7 +89,7 @@ const PropertyBook: React.FC<{ p: EngineProperty; onClose: () => void }> = ({ p,
     <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4" onClick={onClose}>
       <div className="bg-[#F8F6F3] text-[#2C2C2C] max-w-2xl w-full max-h-[88vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
         <div className="relative">
-          <img src={p.image_url || ''} className="w-full h-56 object-cover" />
+          <img src={p.image_url || ''} alt={p.title ? `${p.title} - listing photograph` : 'Listing photograph'} loading="lazy" decoding="async" className="w-full h-56 object-cover" />
           <button onClick={onClose} className="absolute top-3 right-3 bg-white/80 p-1.5 rounded-full"><X size={18} /></button>
           <span className="absolute bottom-3 left-4 text-[10px] tracking-[0.3em] uppercase bg-[#2C2C2C] text-[#C9A961] px-3 py-1">Private Property Book</span>
         </div>

@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { useSeo } from '@/lib/seo';
 import { Link } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { engine, Overview } from '@/lib/engineApi';
@@ -14,6 +15,8 @@ import { LayoutGrid, Home, Users, GitBranch, Megaphone, Settings, Lock, Unlock, 
 type Tab = 'overview' | 'listings' | 'buyers' | 'pipeline' | 'marketing' | 'settings';
 
 const Studio: React.FC = () => {
+  useSeo({ title: 'Studio | DOORS Properties', description: 'The DOORS team studio.', noindex: true });
+
   const { user, loading: authLoading, signOut } = useAuth();
   const [ov, setOv] = useState<Overview | null>(null);
   const [notTeam, setNotTeam] = useState(false);

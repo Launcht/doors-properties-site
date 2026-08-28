@@ -65,6 +65,10 @@ const Sellers: React.FC<Props> = ({ onSeller }) => {
             <div className="relative w-full aspect-[4/5] overflow-hidden rounded-t-full border border-[#C9A961]/45">
               <img
                 src={SELLERS_IMG}
+                width={1100}
+                height={1473}
+                loading="lazy"
+                decoding="async"
                 alt="A private Garden Route home at dusk, glimpsed through indigenous trees from the end of its drive"
                 className="w-full h-full object-cover"
               />

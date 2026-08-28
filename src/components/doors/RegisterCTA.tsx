@@ -10,7 +10,7 @@ interface Props {
 const RegisterCTA: React.FC<Props> = ({ onBuyer, onSeller }) => {
   return (
     <section id="register" className="relative py-28 sm:py-40 overflow-hidden">
-      <img src={COLLECTION_IMG} alt="" className="absolute inset-0 w-full h-full object-cover" />
+      <img src={COLLECTION_IMG} alt="" width={1600} height={893} loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover" />
       <div className="absolute inset-0 bg-[#2C2C2C]/80" />
       <div className="relative max-w-[1100px] mx-auto px-6 sm:px-10 text-center">
         <Reveal>
@@ -32,7 +32,7 @@ const RegisterCTA: React.FC<Props> = ({ onBuyer, onSeller }) => {
             >
               <p className="text-[10px] tracking-[0.25em] uppercase text-[#C9A961] group-hover:text-[#2C2C2C] mb-4">For Buyers</p>
               <h3 className="font-serif text-2xl mb-3">Register to be introduced</h3>
-              <p className="text-[#2C2C2C]/55 group-hover:text-[#2C2C2C]/70 text-sm font-light">
+              <p className="text-[#2C2C2C]/70 group-hover:text-[#2C2C2C]/85 text-sm font-light">
                 Join the registered circle and be shown homes that never reach the market.
               </p>
             </button>

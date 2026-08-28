@@ -1,8 +1,11 @@
 import React from 'react';
+import { useSeo } from '@/lib/seo';
 import { Link } from 'react-router-dom';
 import { Wordmark, BrandName } from '@/components/doors/Wordmark';
 
 const Legal: React.FC = () => {
+  useSeo({ title: 'Privacy, POPIA and Legal | DOORS Properties', description: 'How DOORS Properties handles your information under POPIA, our PPRA registration and Fidelity Fund Certificate, and the terms of using this site.', path: '/legal' });
+
   return (
     <div className="min-h-screen bg-[#F8F6F3] text-[#2C2C2C]">
       <header className="border-b border-[#2C2C2C]/10">
@@ -14,7 +17,7 @@ const Legal: React.FC = () => {
 
       <div className="max-w-[760px] mx-auto px-6 sm:px-10 py-20">
         <h1 className="font-serif text-5xl font-light mb-3">Privacy &amp; Legal</h1>
-        <p className="text-[#2C2C2C]/50 text-sm mb-14">Doors (Pty) Ltd · George, Western Cape</p>
+        <p className="text-[#2C2C2C]/70 text-sm mb-14">Doors (Pty) Ltd · George, Western Cape</p>
 
         <div className="space-y-12 text-[#2C2C2C]/65 text-[15px] font-light leading-relaxed">
           <section>

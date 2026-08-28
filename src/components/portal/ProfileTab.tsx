@@ -5,7 +5,7 @@ import { Check } from 'lucide-react';
 
 const fieldCls =
   'w-full bg-transparent border border-[#2C2C2C]/20 px-4 py-3 text-sm focus:outline-none focus:border-[#C9A961]';
-const labelCls = 'block text-[10px] tracking-[0.2em] uppercase text-[#2C2C2C]/45 mb-2';
+const labelCls = 'block text-[10px] tracking-[0.2em] uppercase text-[#2C2C2C]/65 mb-2';
 
 const ProfileTab: React.FC = () => {
   const { user, profile, updateProfile } = useAuth();
@@ -43,7 +43,7 @@ const ProfileTab: React.FC = () => {
     <div className="max-w-3xl">
       <div className="mb-12">
         <h2 className="font-serif text-3xl font-light">Your profile</h2>
-        <p className="text-[#2C2C2C]/55 text-sm mt-2 max-w-xl leading-relaxed">
+        <p className="text-[#2C2C2C]/70 text-sm mt-2 max-w-xl leading-relaxed">
           How we reach you privately, and the brief we hold for you. The more you tell us, the better we can
           match you to homes - including those that never reach the collection.
         </p>
@@ -73,7 +73,7 @@ const ProfileTab: React.FC = () => {
 
       <div className="mt-12">
         <h3 className="font-serif text-2xl font-light mb-1">What you are looking for</h3>
-        <p className="text-[#2C2C2C]/45 text-xs mb-7">Your private brief - only ever seen by you and DOORS.</p>
+        <p className="text-[#2C2C2C]/65 text-xs mb-7">Your private brief - only ever seen by you and DOORS.</p>
         <div className="grid sm:grid-cols-3 gap-6">
           <div>
             <label className={labelCls}>Price band</label>

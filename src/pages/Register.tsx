@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSeo } from '@/lib/seo';
 import { Link } from 'react-router-dom';
 import { captureLead } from '@/lib/leads';
 import { budgetBands, areas, HERO_IMG } from '@/lib/doorsData';
@@ -8,6 +9,8 @@ const inputClass =
   'w-full bg-transparent border-b border-[#2C2C2C]/20 py-3 text-[#2C2C2C] placeholder-[#2C2C2C]/40 focus:border-[#C9A961] focus:outline-none transition-colors text-sm';
 
 const Register: React.FC = () => {
+  useSeo({ title: 'Register to be Introduced | DOORS Properties', description: 'Register with DOORS to be introduced to Garden Route homes that are never advertised. Tell us what you are looking for and we match you privately.', path: '/register' });
+
   const [kind, setKind] = useState<'buyer' | 'seller'>('buyer');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -94,7 +97,7 @@ const Register: React.FC = () => {
                 <h1 className="font-serif text-4xl text-[#2C2C2C] mb-3">
                   Register with <BrandName />
                 </h1>
-                <p className="text-[#2C2C2C]/55 text-sm leading-relaxed mb-8">
+                <p className="text-[#2C2C2C]/70 text-sm leading-relaxed mb-8">
                   Tell us whether you are looking, or considering a sale. We do the rest, quietly.
                 </p>
 
@@ -138,8 +141,8 @@ const Register: React.FC = () => {
                     onChange={(e) => setMessage(e.target.value)}
                   />
 
-                  <label className="flex items-start gap-3 text-xs text-[#2C2C2C]/55 leading-relaxed cursor-pointer">
-                    <input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} className="mt-0.5 accent-[#C9A961]" />
+                  <label className="flex items-start gap-3 text-xs text-[#2C2C2C]/70 leading-relaxed cursor-pointer">
+                    <input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} className="mt-0.5 w-5 h-5 shrink-0 accent-[#C9A961] cursor-pointer" />
                     <span>
                       I consent to <BrandName /> contacting me about this registration and holding my
                       details for that purpose, in line with POPIA and the{' '}

@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
+import { useSeo } from '@/lib/seo';
 import { Link } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/lib/supabase';
@@ -14,6 +15,8 @@ import { fetchVisibleListings } from '@/lib/listings';
 type Tab = 'collection' | 'saved' | 'profile';
 
 const PortalDashboard: React.FC = () => {
+  useSeo({ title: 'Your portal | DOORS Properties', description: 'Your private DOORS portal.', noindex: true });
+
   const { user, profile, signOut } = useAuth();
   const greeting = profile?.full_name?.split(' ')[0] || user?.email?.split('@')[0] || 'Welcome';
 
@@ -92,7 +95,7 @@ const PortalDashboard: React.FC = () => {
       <section className="max-w-[1300px] mx-auto px-6 sm:px-10 pt-14 pb-8">
         <p className="text-[#C9A961] text-[11px] tracking-[0.3em] uppercase mb-4">The Private Collection</p>
         <h1 className="font-serif text-4xl sm:text-5xl font-light mb-4">Good day, {greeting}.</h1>
-        <p className="text-[#2C2C2C]/55 text-sm leading-relaxed max-w-xl">
+        <p className="text-[#2C2C2C]/70 text-sm leading-relaxed max-w-xl">
           You are inside the circle. Every home below reveals its full detail to you. To see one in person,
           request a private viewing and Chris will arrange it personally.
         </p>
@@ -140,7 +143,7 @@ const PortalDashboard: React.FC = () => {
             <div>
               <p className="text-[10px] tracking-[0.25em] uppercase text-[#C9A961] mb-6">Homes you have saved</p>
               {savedHomes.length === 0 ? (
-                <p className="text-[#2C2C2C]/45 text-sm italic">
+                <p className="text-[#2C2C2C]/65 text-sm italic">
                   Nothing saved yet. Tap the heart on any home to keep it here.
                 </p>
               ) : (
@@ -154,7 +157,7 @@ const PortalDashboard: React.FC = () => {
             <div>
               <p className="text-[10px] tracking-[0.25em] uppercase text-[#C9A961] mb-6">Recently viewed</p>
               {viewedHomes.length === 0 ? (
-                <p className="text-[#2C2C2C]/45 text-sm italic">The homes you open will appear here.</p>
+                <p className="text-[#2C2C2C]/65 text-sm italic">The homes you open will appear here.</p>
               ) : (
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-14">
                   {viewedHomes.map((p) => (

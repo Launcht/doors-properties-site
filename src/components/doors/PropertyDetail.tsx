@@ -70,7 +70,7 @@ const PropertyDetail: React.FC<Props> = ({ property, onClose, onRequest }) => {
             preload="metadata"
           />
         ) : (
-          <img src={property.image} alt={property.title} className="w-full h-full object-cover" />
+          <img src={property.image} alt={property.title} loading="lazy" decoding="async" className="w-full h-full object-cover" />
         )}
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#1d1d1d] to-transparent" />
       </div>

@@ -13,7 +13,15 @@ const Hero: React.FC<Props> = ({ onEnquire }) => {
 
   return (
     <section className="relative h-screen min-h-[640px] w-full overflow-hidden">
-      <img src={HERO_IMG} alt="A Garden Route estate at golden hour" className="absolute inset-0 w-full h-full object-cover" />
+      <img
+        src={HERO_IMG}
+        alt="A Garden Route estate at golden hour"
+        width={2000}
+        height={1116}
+        fetchPriority="high"
+        decoding="async"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
       {/* base vertical darkening for footing + scroll cue */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#2C2C2C]/30 via-transparent to-[#2C2C2C]/55" />
       {/* right-side scrim so the white headline reads cleanly over the bright ocean */}

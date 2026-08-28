@@ -158,7 +158,7 @@ const EnquiryModal: React.FC<Props> = ({ open, onClose, kind, propertyRef, prope
                       type="checkbox"
                       checked={viewingRequested}
                       onChange={(e) => setViewingRequested(e.target.checked)}
-                      className="mt-0.5 accent-[#C9A961]"
+                      className="mt-0.5 w-5 h-5 shrink-0 accent-[#C9A961] cursor-pointer"
                     />
                     <span>Request an introductory viewing.</span>
                   </label>
@@ -169,7 +169,7 @@ const EnquiryModal: React.FC<Props> = ({ open, onClose, kind, propertyRef, prope
                     type="checkbox"
                     checked={consent}
                     onChange={(e) => setConsent(e.target.checked)}
-                    className="mt-0.5 accent-[#C9A961]"
+                    className="mt-0.5 w-5 h-5 shrink-0 accent-[#C9A961] cursor-pointer"
                   />
                   <span>
                     I consent to <BrandName /> contacting me about this enquiry and holding my details for

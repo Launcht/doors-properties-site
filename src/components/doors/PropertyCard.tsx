@@ -13,6 +13,10 @@ const PropertyCard: React.FC<Props> = ({ property, onView }) => {
         <img
           src={property.image}
           alt={property.title}
+          width={1400}
+          height={930}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.05]"
         />
         {property.video && (

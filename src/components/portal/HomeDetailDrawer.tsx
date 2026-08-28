@@ -139,7 +139,7 @@ const HomeDetailDrawer: React.FC<Props> = ({ property, onClose, saved, onToggleS
             {sent ? (
               <div className="text-center py-6">
                 <p className="font-serif text-2xl font-light">Thank you.</p>
-                <p className="text-[#2C2C2C]/55 text-sm mt-2 max-w-sm mx-auto">
+                <p className="text-[#2C2C2C]/70 text-sm mt-2 max-w-sm mx-auto">
                   Chris will be in touch personally to arrange this. Every viewing is handled discreetly.
                 </p>
               </div>

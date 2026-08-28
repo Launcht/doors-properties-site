@@ -68,9 +68,10 @@ const Navbar: React.FC<Props> = ({ onEnquire }) => {
         </nav>
 
         <button
-          className={`md:hidden ${scrolled ? 'text-[#2C2C2C]' : 'text-[#F8F6F3]'}`}
+          className={`md:hidden -mr-2.5 p-2.5 flex items-center justify-center min-w-[44px] min-h-[44px] ${scrolled ? 'text-[#2C2C2C]' : 'text-[#F8F6F3]'}`}
           onClick={() => setMenuOpen((v) => !v)}
-          aria-label="Menu"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
         >
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
             {menuOpen ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 8h16M4 16h16" />}
