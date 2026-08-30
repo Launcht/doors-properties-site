@@ -30,8 +30,18 @@ jobs:
       - run: npm run build
         env:
           VITE_BASE: ${{ vars.VITE_BASE }}
-      # SPA fallback so deep links (/register, /signin) resolve on a static host.
+      # SPA fallback so deep links resolve on a static host. 404.html catches
+      # anything unknown, but it answers with a 404 STATUS, which is right for a
+      # genuine miss and wrong for a real route - Google will not index a 404, and
+      # /legal and /register are both in the sitemap. So give every real route its
+      # own index.html and let it answer 200.
       - run: cp dist/index.html dist/404.html
+      - name: Real routes answer 200, not 404
+        run: |
+          for route in legal register signin portal studio; do
+            mkdir -p "dist/$route"
+            cp dist/index.html "dist/$route/index.html"
+          done
       # Custom domain, LIVE REPO ONLY. The live repo leaves VITE_BASE unset; the
       # preview repo sets it, and must NOT claim the domain or the two Pages sites
       # fight over it. This is why the CNAME is generated here rather than kept in
