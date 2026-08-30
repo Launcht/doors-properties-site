@@ -32,6 +32,13 @@ jobs:
           VITE_BASE: ${{ vars.VITE_BASE }}
       # SPA fallback so deep links (/register, /signin) resolve on a static host.
       - run: cp dist/index.html dist/404.html
+      # Custom domain, LIVE REPO ONLY. The live repo leaves VITE_BASE unset; the
+      # preview repo sets it, and must NOT claim the domain or the two Pages sites
+      # fight over it. This is why the CNAME is generated here rather than kept in
+      # public/, which would ship it to both.
+      - name: Claim the custom domain (live deploy only)
+        if: ${{ vars.VITE_BASE == '' }}
+        run: echo 'www.doors-properties.com' > dist/CNAME
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
