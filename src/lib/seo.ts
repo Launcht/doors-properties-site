@@ -6,7 +6,9 @@ import { useEffect } from 'react';
  * the home page. This sets the head per route, and marks the private surfaces
  * noindex so the portal and the studio never enter an index.
  */
-export const SITE_URL = 'https://doors-properties.com';
+// The live site is served from www; the bare domain 301s here, so a canonical
+// pointing at the bare domain would name a URL that redirects.
+export const SITE_URL = 'https://www.doors-properties.com';
 
 function setMeta(selector: string, attr: 'name' | 'property', key: string, content: string) {
   let el = document.head.querySelector<HTMLMetaElement>(selector);
@@ -48,7 +50,9 @@ export function useSeo({ title, description, path, noindex }: SeoInput) {
     if (noindex || !path) {
       existing?.remove();
     } else {
-      const href = SITE_URL + path;
+      // GitHub Pages serves each route as a directory, so /legal answers on
+      // /legal/ - the canonical has to name the URL that actually returns 200.
+      const href = SITE_URL + (path === '/' ? '/' : path.replace(/\/$/, '') + '/');
       if (existing) {
         existing.href = href;
       } else {

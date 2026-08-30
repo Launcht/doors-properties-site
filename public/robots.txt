@@ -36,4 +36,4 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-Sitemap: https://doors-properties.com/sitemap.xml
+Sitemap: https://www.doors-properties.com/sitemap.xml

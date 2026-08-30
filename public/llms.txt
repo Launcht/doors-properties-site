@@ -14,7 +14,7 @@
 - Area served: the Garden Route, from Mossel Bay through George, Wilderness and
   Knysna to Plettenberg Bay, including Herolds Bay
 - Telephone: +27 82 458 3334
-- Website: https://doors-properties.com
+- Website: https://www.doors-properties.com
 
 ## How it works
 
@@ -35,7 +35,7 @@ labelled as such.
 
 ## Pages
 
-- [Home](https://doors-properties.com/): who DOORS is, how introductions work, the
+- [Home](https://www.doors-properties.com/): who DOORS is, how introductions work, the
   architectural showcase, the region, and the seller proposition.
-- [Register](https://doors-properties.com/register): buyer registration.
-- [Privacy and legal](https://doors-properties.com/legal): POPIA handling and terms.
+- [Register](https://www.doors-properties.com/register): buyer registration.
+- [Privacy and legal](https://www.doors-properties.com/legal): POPIA handling and terms.
