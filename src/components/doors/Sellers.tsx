@@ -8,10 +8,10 @@ interface Props {
 }
 
 const assurances = [
-  { t: 'Three routes, and you choose', d: 'Private, limited or open. Each one reaches a different audience and costs you a different amount of privacy. We set out both before you decide, rather than defaulting to whichever suits us.' },
-  { t: 'Your privacy constraints, written down', d: 'Whatever you will not have published - your address, your photographs, the fact of the sale itself - is recorded at the outset and holds for the length of the mandate.' },
-  { t: 'What we will actually do, agreed', d: 'The marketing you are getting is agreed in writing before it starts. No vague promise of exposure, and no quiet decision later to do less of it.' },
-  { t: 'A date to review it', d: 'We set a point to look at whether the approach is working and to change it if it is not. A route chosen in March is not automatically still right in June.' },
+  { t: 'The route is yours to choose', d: 'A private introduction to a matched few, a selective release, or a full open-market campaign. Whichever serves the property and serves you.' },
+  { t: 'You see the trade-off first', d: 'What each route reaches, what it asks of your privacy, and what it is likely to do to price and to time on market. Before you commit, not afterwards.' },
+  { t: 'Your privacy, written down', d: 'Whatever you will not have published - your address, your photographs, the fact of the sale itself - is recorded at the outset and holds for the length of the mandate.' },
+  { t: 'The plan in writing, and a date to review it', d: 'You know exactly what marketing you have, and we set a point to look at how it is working and change the approach if the market says we should.' },
   { t: 'The same standard either way', d: 'An openly marketed home gets the same care, the same presentation and the same reporting as a private one. Neither is the lesser mandate.' },
 ];
 
@@ -23,12 +23,13 @@ const Sellers: React.FC<Props> = ({ onSeller }) => {
           <div className="text-center max-w-2xl mx-auto mb-16 sm:mb-20">
             <p className="text-[#C9A961] text-[11px] tracking-[0.3em] uppercase mb-6">For Sellers</p>
             <h2 className="font-serif text-4xl sm:text-5xl text-[#F8F6F3] font-light leading-[1.15] mb-8">
-              The right exposure is never assumed.
+              A considered route to the strongest sale your home can reach.
             </h2>
             <p className="text-[#F8F6F3]/65 text-base font-light leading-relaxed">
-              An exceptional home deserves judgement before it deserves exposure. Some sales are best
-              handled privately. Others deserve the widest audience the property can hold. We work out
-              which with you, agree it in writing, and then do it properly.
+              You should not have to hand your home to the market and hope. Some sales are best handled
+              privately; others deserve the widest audience the property can hold. We work out which with
+              you, agree it in writing before anything begins, and represent it to that standard until it
+              is sold.
             </p>
           </div>
         </Reveal>
@@ -52,7 +53,7 @@ const Sellers: React.FC<Props> = ({ onSeller }) => {
                 onClick={onSeller}
                 className="mt-12 border border-[#C9A961] text-[#C9A961] px-9 py-4 text-xs tracking-[0.22em] uppercase hover:bg-[#C9A961] hover:text-[#2C2C2C] transition-colors"
               >
-                Enquire about representation
+                Speak to us about your home
               </button>
             </div>
           </Reveal>

@@ -11,6 +11,14 @@ const Hero: React.FC<Props> = ({ onEnquire }) => {
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // The buyer's route out of a seller-led hero. It goes to the register block
+  // rather than opening the enquiry modal, so the two actions stay clearly
+  // different things.
+  const scrollToRegister = () => {
+    const el = document.getElementById('register');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="relative h-screen min-h-[640px] w-full overflow-hidden">
       <img
@@ -30,7 +38,7 @@ const Hero: React.FC<Props> = ({ onEnquire }) => {
       <div className="relative h-full flex flex-col items-end justify-center px-6 sm:px-10 lg:px-20">
         <div className="max-w-xl text-right" style={{ textShadow: '0 2px 24px rgba(10,9,8,0.65)' }}>
           <p className="text-[#F8F6F3]/90 text-[11px] sm:text-xs tracking-[0.4em] uppercase mb-8 animate-[fadeIn_1.4s_ease]">
-            Garden Route · George to Plettenberg Bay
+            For owners of distinctive Garden Route homes
           </p>
           <h1 className="font-serif text-[#F8F6F3] text-5xl sm:text-7xl lg:text-8xl font-light leading-[1.05] animate-[fadeIn_1.8s_ease]">
             The Key to
@@ -38,17 +46,27 @@ const Hero: React.FC<Props> = ({ onEnquire }) => {
             <span className="italic">Extraordinary</span>
           </h1>
           <p className="text-[#F8F6F3] text-base sm:text-lg font-light max-w-md ml-auto mt-8 leading-relaxed animate-[fadeIn_2.2s_ease]">
-            We represent the coast's most distinctive homes, and we decide with you how each one should meet
-            its market. We open doors - we do not sell houses.
+            Selling a home like yours turns on one decision: how much of it the world gets to see. We make
+            that decision with you, set it out in writing, and represent the property to the standard it
+            deserves.
           </p>
         </div>
-        <button
-          onClick={onEnquire}
-          className="mt-10 text-[11px] tracking-[0.25em] uppercase text-[#F8F6F3] border border-[#F8F6F3]/70 px-9 py-4 hover:bg-[#F8F6F3] hover:text-[#2C2C2C] transition-colors animate-[fadeIn_2.6s_ease]"
-          style={{ boxShadow: '0 2px 24px rgba(10,9,8,0.35)' }}
-        >
-          Enquire privately
-        </button>
+        <div className="mt-10 flex flex-col items-end gap-4 animate-[fadeIn_2.6s_ease]">
+          <button
+            onClick={onEnquire}
+            className="text-[11px] tracking-[0.25em] uppercase text-[#2C2C2C] bg-[#C9A961] px-9 py-4 hover:bg-[#d9bc7c] transition-colors"
+            style={{ boxShadow: '0 2px 24px rgba(10,9,8,0.35)' }}
+          >
+            Speak to us about your home
+          </button>
+          <button
+            onClick={scrollToRegister}
+            className="text-[11px] tracking-[0.2em] uppercase text-[#F8F6F3]/75 border-b border-[#F8F6F3]/40 pb-1 hover:text-[#F8F6F3] hover:border-[#F8F6F3] transition-colors"
+            style={{ textShadow: '0 2px 16px rgba(10,9,8,0.6)' }}
+          >
+            Looking to buy? Register your brief
+          </button>
+        </div>
       </div>
 
       <button

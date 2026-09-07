@@ -15,9 +15,9 @@ const Philosophy: React.FC = () => {
               Every property opens somewhere. The question is how.
             </h2>
             <p className="text-[#2C2C2C]/70 text-base sm:text-lg font-light leading-relaxed mt-8">
-              Private, limited or open. Most agencies market every home the same way and call it a
-              strategy. We decide with you, on the merits of your property and what you are trying
-              to achieve, and we tell you what each route costs you as well as what it reaches.
+              Private, limited or open. The right answer depends on the property and on what you are
+              trying to achieve, so we work it out with you before anything begins - what each route
+              reaches, what it asks of your privacy, and what it is likely to do to the result.
             </p>
           </div>
         </Reveal>
@@ -27,7 +27,7 @@ const Philosophy: React.FC = () => {
             {
               n: '01',
               title: 'Informed Exposure',
-              body: 'Private, limited or open marketing, agreed with you before anything begins. The trade-offs in writing, your privacy constraints recorded, and a date set to review whether it is working.',
+              body: 'You decide how much of your life goes on show, knowing what each choice is likely to reach and what it is likely to cost. Agreed before anything begins, written down, and reviewed.',
             },
             {
               n: '02',
@@ -37,7 +37,7 @@ const Philosophy: React.FC = () => {
             {
               n: '03',
               title: 'Advisory, Not Sales',
-              body: 'Honest, numerate counsel from an advisor who knows the market - not a salesperson chasing a transaction. Including when the honest answer is not the one that wins us the mandate.',
+              body: 'Counsel you can act on: honest, numerate, and grounded in this stretch of coast. Given straight, including on the days the straight answer costs us the mandate.',
             },
           ].map((item, i) => (
             <Reveal key={item.n} delay={i * 120}>

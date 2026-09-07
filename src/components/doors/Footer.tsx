@@ -15,8 +15,8 @@ const Footer: React.FC<Props> = ({ onEnquire }) => {
           <div className="md:col-span-2">
             <div className="mb-5"><Wordmark tone="gold" size="lg" /></div>
             <p className="text-ivory/55 text-sm font-light leading-relaxed max-w-sm">
-              The Key to Extraordinary. A Garden Route practice for distinctive property, where the route to
-              market is chosen with the seller rather than assumed.
+              The Key to Extraordinary. A Garden Route practice for distinctive property, where the owner
+              decides how the home meets its market and has that decision in writing.
             </p>
           </div>
 

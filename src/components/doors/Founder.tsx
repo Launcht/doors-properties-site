@@ -19,13 +19,13 @@ const Founder: React.FC = () => {
           </h2>
           <div className="space-y-5 text-[#2C2C2C]/70 text-[15px] sm:text-base font-light leading-relaxed">
             <p>
-              <BrandName /> began with a simple conviction: that the people buying and selling the finest
-              homes on this coast deserve judgement, and that how a home is brought to market should be
-              a decision rather than a habit.
+              <BrandName /> began with a simple conviction: that the owner of an exceptional home should
+              be the one who decides how it meets its market, and should be given everything they need to
+              decide it well.
             </p>
             <p>
-              We keep the circle small on purpose. We would rather know a handful of buyers and a handful of
-              sellers well than chase a market we cannot serve properly. Every conversation is held in
+              We keep the circle small on purpose. We would rather know a handful of owners and a handful of
+              buyers well than take on more than we can represent properly. Every conversation is held in
               confidence, and every number is honest.
             </p>
             <p>

@@ -5,7 +5,7 @@ import AppLayout from '@/components/AppLayout';
 import { AppProvider } from '@/contexts/AppContext';
 
 const Index: React.FC = () => {
-  useSeo({ title: 'Garden Route Property | DOORS', description: "DOORS represents distinctive Garden Route homes, Mossel Bay to Plettenberg Bay. Private, limited or open marketing, agreed with the seller for each property.", path: '/' });
+  useSeo({ title: 'Garden Route Estate Agents | DOORS', description: "Selling a distinctive Garden Route home? DOORS agrees the route to market with you, private, limited or open, and represents it to that standard. Mossel Bay to Plettenberg Bay.", path: '/' });
 
   return (
     <AppProvider>

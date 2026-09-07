@@ -14,12 +14,12 @@ const RegisterCTA: React.FC<Props> = ({ onBuyer, onSeller }) => {
       <div className="absolute inset-0 bg-[#2C2C2C]/80" />
       <div className="relative max-w-[1100px] mx-auto px-6 sm:px-10 text-center">
         <Reveal>
-          <p className="text-[#C9A961] text-[11px] tracking-[0.3em] uppercase mb-6">By Introduction</p>
+          <p className="text-[#C9A961] text-[11px] tracking-[0.3em] uppercase mb-6">Begin Here</p>
           <h2 className="font-serif text-4xl sm:text-6xl text-[#F8F6F3] font-light leading-[1.1] mb-6">
             Quietly begin.
           </h2>
           <p className="text-[#F8F6F3]/75 text-base sm:text-lg font-light max-w-xl mx-auto leading-relaxed mb-14">
-            Whether you are looking for an extraordinary home or considering the sale of one, the first step is
+            Whether you are considering the sale of an extraordinary home or looking for one, the first step is
             a private conversation.
           </p>
         </Reveal>
@@ -27,25 +27,25 @@ const RegisterCTA: React.FC<Props> = ({ onBuyer, onSeller }) => {
         <Reveal delay={150}>
           <div className="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
             <button
-              onClick={onBuyer}
-              className="group bg-[#F8F6F3] text-[#2C2C2C] p-10 text-left hover:bg-[#C9A961] transition-colors duration-500"
+              onClick={onSeller}
+              className="group flex flex-col items-start bg-[#F8F6F3] text-[#2C2C2C] p-10 text-left hover:bg-[#C9A961] transition-colors duration-500"
             >
-              <p className="text-[10px] tracking-[0.25em] uppercase text-[#C9A961] group-hover:text-[#2C2C2C] mb-4">For Buyers</p>
-              <h3 className="font-serif text-2xl mb-3">Register your brief</h3>
+              <p className="text-[10px] tracking-[0.25em] uppercase text-[#C9A961] group-hover:text-[#2C2C2C] mb-4">For Sellers</p>
+              <h3 className="font-serif text-2xl mb-3">Speak about your home</h3>
               <p className="text-[#2C2C2C]/70 group-hover:text-[#2C2C2C]/85 text-sm font-light">
-                Tell us what you are looking for and be told about the homes that match, including the
-                ones held back from the open market.
+                A confidential conversation about what your property could achieve, and the route to
+                market that gets it there.
               </p>
             </button>
             <button
-              onClick={onSeller}
-              className="group bg-transparent border border-[#F8F6F3]/40 text-[#F8F6F3] p-10 text-left hover:bg-[#F8F6F3] hover:text-[#2C2C2C] transition-colors duration-500"
+              onClick={onBuyer}
+              className="group flex flex-col items-start bg-transparent border border-[#F8F6F3]/40 text-[#F8F6F3] p-10 text-left hover:bg-[#F8F6F3] hover:text-[#2C2C2C] transition-colors duration-500"
             >
-              <p className="text-[10px] tracking-[0.25em] uppercase text-[#C9A961] mb-4">For Sellers</p>
-              <h3 className="font-serif text-2xl mb-3">Speak about a sale</h3>
+              <p className="text-[10px] tracking-[0.25em] uppercase text-[#C9A961] mb-4">For Buyers</p>
+              <h3 className="font-serif text-2xl mb-3">Register your brief</h3>
               <p className="text-[#F8F6F3]/60 group-hover:text-[#2C2C2C]/70 text-sm font-light">
-                A confidential discussion about representing your home, and about how openly it should
-                be marketed.
+                Tell us what you are looking for and be told about the homes that match, including the
+                ones held back from the open market.
               </p>
             </button>
           </div>
