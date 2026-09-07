@@ -9,7 +9,7 @@ const inputClass =
   'w-full bg-transparent border-b border-[#2C2C2C]/20 py-3 text-[#2C2C2C] placeholder-[#2C2C2C]/40 focus:border-[#C9A961] focus:outline-none transition-colors text-sm';
 
 const Register: React.FC = () => {
-  useSeo({ title: 'Register to be Introduced | DOORS Properties', description: 'Register with DOORS to be introduced to Garden Route homes that are never advertised. Tell us what you are looking for and we match you privately.', path: '/register' });
+  useSeo({ title: 'Register with DOORS | Garden Route Property', description: 'Tell DOORS what you are looking for, or that you are considering a sale. We match buyers to homes across the Garden Route corridor and hold every detail in confidence.', path: '/register' });
 
   const [kind, setKind] = useState<'buyer' | 'seller'>('buyer');
   const [name, setName] = useState('');
@@ -63,9 +63,9 @@ const Register: React.FC = () => {
         <div className="relative h-full flex flex-col justify-between p-12">
           <Link to="/" aria-label="DOORS home"><Wordmark tone="gold" size="xl" /></Link>
           <div>
-            <p className="text-[#C9A961] text-[11px] tracking-[0.3em] uppercase mb-5">By Private Introduction</p>
+            <p className="text-[#C9A961] text-[11px] tracking-[0.3em] uppercase mb-5">Matched, Not Mailed</p>
             <h2 className="font-serif text-5xl text-[#F8F6F3] font-light leading-tight">
-              You are introduced,<br />not advertised to.
+              Told about the right<br />home, not every home.
             </h2>
             <p className="text-[#F8F6F3]/70 text-sm font-light leading-relaxed mt-6 max-w-md">
               Every detail you share is held in confidence. We reply personally - never with automated noise.
@@ -85,8 +85,8 @@ const Register: React.FC = () => {
                 <p className="text-[#C9A961] text-xs tracking-[0.25em] uppercase mb-5">Received</p>
                 <h1 className="font-serif text-4xl text-[#2C2C2C] mb-4">Thank you.</h1>
                 <p className="text-[#2C2C2C]/60 text-sm leading-relaxed mb-8">
-                  Your registration has reached us privately. A member of the <BrandName /> circle will be
-                  in touch personally and in confidence.
+                  Your registration has reached us privately. Someone from <BrandName /> will be in touch
+                  personally and in confidence.
                 </p>
                 <Link to="/" className="text-xs tracking-[0.2em] uppercase text-[#2C2C2C] border-b border-[#C9A961] pb-1 hover:text-[#C9A961]">
                   Return home
@@ -98,7 +98,8 @@ const Register: React.FC = () => {
                   Register with <BrandName />
                 </h1>
                 <p className="text-[#2C2C2C]/70 text-sm leading-relaxed mb-8">
-                  Tell us whether you are looking, or considering a sale. We do the rest, quietly.
+                  Tell us whether you are looking, or considering a sale. We reply personally, and nothing
+                  you share is made public.
                 </p>
 
                 <div className="flex border border-[#2C2C2C]/15 mb-8">

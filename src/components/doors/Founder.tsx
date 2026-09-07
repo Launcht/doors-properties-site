@@ -15,12 +15,13 @@ const Founder: React.FC = () => {
         <Reveal>
           <p className="text-[#C9A961] text-[11px] tracking-[0.3em] uppercase mb-6">Our Approach</p>
           <h2 className="font-serif text-4xl sm:text-5xl text-[#2C2C2C] font-light leading-[1.15] mb-8">
-            A small circle, counselled personally.
+            Counselled personally, start to finish.
           </h2>
           <div className="space-y-5 text-[#2C2C2C]/70 text-[15px] sm:text-base font-light leading-relaxed">
             <p>
               <BrandName /> began with a simple conviction: that the people buying and selling the finest
-              homes on this coast deserve judgement and privacy, not boards and billboards.
+              homes on this coast deserve judgement, and that how a home is brought to market should be
+              a decision rather than a habit.
             </p>
             <p>
               We keep the circle small on purpose. We would rather know a handful of buyers and a handful of
@@ -28,8 +29,8 @@ const Founder: React.FC = () => {
               confidence, and every number is honest.
             </p>
             <p>
-              If you are relocating within South Africa, semigrating to the Garden Route, or quietly
-              considering a sale, we would be glad to talk. No obligation, and nothing made public.
+              If you are relocating within South Africa, semigrating to the Garden Route, or considering a
+              sale, we would be glad to talk. No obligation, and nothing made public without your say-so.
             </p>
           </div>
         </Reveal>

@@ -13,6 +13,7 @@ import Studio from "./pages/Studio";
 import SignIn from "./pages/SignIn";
 import Legal from "./pages/Legal";
 import NotFound from "./pages/NotFound";
+import CookieNotice from "@/components/doors/CookieNotice";
 
 
 const queryClient = new QueryClient();
@@ -35,6 +36,7 @@ const App = () => (
               <Route path="/legal" element={<Legal />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
+            <CookieNotice />
           </BrowserRouter>
         </AuthProvider>
       </TooltipProvider>

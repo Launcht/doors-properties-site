@@ -96,7 +96,12 @@ const HomeDetailDrawer: React.FC<Props> = ({ property, onClose, saved, onToggleS
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-[#2C2C2C]/10 mt-7 border border-[#2C2C2C]/10">
             <div className="bg-[#F8F6F3] p-4">
               <p className="text-[10px] tracking-[0.2em] uppercase text-[#2C2C2C]/40">Guide</p>
-              <p className="font-serif text-lg mt-1">{p.exactPrice || p.priceBand}</p>
+              <p className="font-serif text-lg mt-1">
+                {p.exactPrice || p.priceBand}
+                {euroEquivalent(p.exactPrice || p.priceBand) && (
+                  <span className="ml-2 opacity-50 text-xs font-sans">{euroEquivalent(p.exactPrice || p.priceBand)}</span>
+                )}
+              </p>
             </div>
             <div className="bg-[#F8F6F3] p-4">
               <p className="text-[10px] tracking-[0.2em] uppercase text-[#2C2C2C]/40">Bedrooms</p>

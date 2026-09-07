@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Wordmark } from './Wordmark';
+import { resetConsent } from '@/lib/consent';
 
 interface Props {
   onEnquire: () => void;
@@ -14,8 +15,8 @@ const Footer: React.FC<Props> = ({ onEnquire }) => {
           <div className="md:col-span-2">
             <div className="mb-5"><Wordmark tone="gold" size="lg" /></div>
             <p className="text-ivory/55 text-sm font-light leading-relaxed max-w-sm">
-              The Key to Extraordinary. A private property brokerage for the Garden Route's most exceptional
-              homes - by introduction, never advertised.
+              The Key to Extraordinary. A Garden Route practice for distinctive property, where the route to
+              market is chosen with the seller rather than assumed.
             </p>
           </div>
 
@@ -36,6 +37,7 @@ const Footer: React.FC<Props> = ({ onEnquire }) => {
               <li><Link to="/register" className="hover:text-ivory transition-colors">Register</Link></li>
               <li><Link to="/signin" className="hover:text-ivory transition-colors">Sign In</Link></li>
               <li><Link to="/legal" className="hover:text-ivory transition-colors">Privacy &amp; Legal</Link></li>
+              <li><button onClick={resetConsent} className="hover:text-ivory transition-colors text-left">Cookie choices</button></li>
               <li><Link to="/signin" className="hover:text-ivory transition-colors">DOORS Engine</Link></li>
             </ul>
           </div>
@@ -54,13 +56,14 @@ const Footer: React.FC<Props> = ({ onEnquire }) => {
               <p>
                 <a href="tel:+27824583334" className="hover:text-[#C9A961] transition-colors">082 458 3334</a>
                 <span className="px-2 text-[#F8F6F3]/25">|</span>
-                <a href="mailto:chris@wildernessaccounting.com" className="hover:text-[#C9A961] transition-colors">chris@wildernessaccounting.com</a>
+                <a href="mailto:admin@doors-properties.com" className="hover:text-[#C9A961] transition-colors">admin@doors-properties.com</a>
               </p>
             </div>
 
             <div className="lg:text-right space-y-0.5 text-[#F8F6F3]/35">
               <p>© {new Date().getFullYear()} Doors (Pty) Ltd. All rights reserved.</p>
-              <p>Where a price is shown, it is shown as a band. Homes shown by private introduction only.</p>
+              <p>Where a price is shown it is shown as a band, and any euro figure beside it is indicative only.</p>
+              <p>Marketing approach is agreed per mandate: private, limited or open.</p>
             </div>
           </div>
         </div>

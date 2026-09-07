@@ -70,19 +70,31 @@ const inlineLogoForTone: Record<string, string> = {
  * has to sit in the line of type, not just in headers.
  *
  * Rendered at cap height and nudged onto the baseline so the sentence still
- * reads as a sentence. The accessible name stays "DOORS", so screen readers,
- * search engines and copy-paste all still get the word.
+ * reads as a sentence.
+ *
+ * THE WORD IS REAL TEXT, and the logo is decorative over it. Chris Dreyer,
+ * 06/09/2026: "Make wording that relies on an inline logo readable and
+ * accessible as text, including phrases such as 'Register with [logo]'." An
+ * alt attribute alone answered the screen reader and nothing else - it is not
+ * copied with the sentence, not shown in reader mode or an email preview, and
+ * it carries less weight inside an <h1> than the word does. So the span holds
+ * "DOORS" for every one of those, positioned off-screen rather than hidden with
+ * display:none, which would take it out of the accessibility tree as well.
  */
 export const BrandName: React.FC<{ tone?: 'ivory' | 'onyx' | 'gold'; className?: string }> = ({
   tone = 'onyx',
   className = '',
 }) => (
-  <img
-    src={`${import.meta.env.BASE_URL}${inlineLogoForTone[tone]}`}
-    alt="DOORS"
-    className={`inline-block w-auto align-baseline ${className}`}
-    style={{ height: '0.78em', transform: 'translateY(0.04em)' }}
-  />
+  <span className="inline-block">
+    <span className="sr-only">DOORS</span>
+    <img
+      src={`${import.meta.env.BASE_URL}${inlineLogoForTone[tone]}`}
+      alt=""
+      aria-hidden="true"
+      className={`inline-block w-auto align-baseline ${className}`}
+      style={{ height: '0.78em', transform: 'translateY(0.04em)' }}
+    />
+  </span>
 );
 
 /**

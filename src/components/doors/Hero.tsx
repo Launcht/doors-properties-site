@@ -30,7 +30,7 @@ const Hero: React.FC<Props> = ({ onEnquire }) => {
       <div className="relative h-full flex flex-col items-end justify-center px-6 sm:px-10 lg:px-20">
         <div className="max-w-xl text-right" style={{ textShadow: '0 2px 24px rgba(10,9,8,0.65)' }}>
           <p className="text-[#F8F6F3]/90 text-[11px] sm:text-xs tracking-[0.4em] uppercase mb-8 animate-[fadeIn_1.4s_ease]">
-            Garden Route · By Private Introduction
+            Garden Route · George to Plettenberg Bay
           </p>
           <h1 className="font-serif text-[#F8F6F3] text-5xl sm:text-7xl lg:text-8xl font-light leading-[1.05] animate-[fadeIn_1.8s_ease]">
             The Key to
@@ -38,7 +38,8 @@ const Hero: React.FC<Props> = ({ onEnquire }) => {
             <span className="italic">Extraordinary</span>
           </h1>
           <p className="text-[#F8F6F3] text-base sm:text-lg font-light max-w-md ml-auto mt-8 leading-relaxed animate-[fadeIn_2.2s_ease]">
-            A private brokerage for the coast's most exceptional homes. We open doors - we do not sell houses.
+            We represent the coast's most distinctive homes, and we decide with you how each one should meet
+            its market. We open doors - we do not sell houses.
           </p>
         </div>
         <button
@@ -46,7 +47,7 @@ const Hero: React.FC<Props> = ({ onEnquire }) => {
           className="mt-10 text-[11px] tracking-[0.25em] uppercase text-[#F8F6F3] border border-[#F8F6F3]/70 px-9 py-4 hover:bg-[#F8F6F3] hover:text-[#2C2C2C] transition-colors animate-[fadeIn_2.6s_ease]"
           style={{ boxShadow: '0 2px 24px rgba(10,9,8,0.35)' }}
         >
-          Request an introduction
+          Enquire privately
         </button>
       </div>
 

@@ -31,9 +31,10 @@ const RegisterCTA: React.FC<Props> = ({ onBuyer, onSeller }) => {
               className="group bg-[#F8F6F3] text-[#2C2C2C] p-10 text-left hover:bg-[#C9A961] transition-colors duration-500"
             >
               <p className="text-[10px] tracking-[0.25em] uppercase text-[#C9A961] group-hover:text-[#2C2C2C] mb-4">For Buyers</p>
-              <h3 className="font-serif text-2xl mb-3">Register to be introduced</h3>
+              <h3 className="font-serif text-2xl mb-3">Register your brief</h3>
               <p className="text-[#2C2C2C]/70 group-hover:text-[#2C2C2C]/85 text-sm font-light">
-                Join the registered circle and be shown homes that never reach the market.
+                Tell us what you are looking for and be told about the homes that match, including the
+                ones held back from the open market.
               </p>
             </button>
             <button
@@ -43,7 +44,8 @@ const RegisterCTA: React.FC<Props> = ({ onBuyer, onSeller }) => {
               <p className="text-[10px] tracking-[0.25em] uppercase text-[#C9A961] mb-4">For Sellers</p>
               <h3 className="font-serif text-2xl mb-3">Speak about a sale</h3>
               <p className="text-[#F8F6F3]/60 group-hover:text-[#2C2C2C]/70 text-sm font-light">
-                A confidential discussion about representing your home - without advertising it.
+                A confidential discussion about representing your home, and about how openly it should
+                be marketed.
               </p>
             </button>
           </div>

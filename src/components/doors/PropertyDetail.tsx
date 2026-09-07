@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { DoorsProperty } from '@/lib/doorsData';
+import { DoorsProperty, euroEquivalent } from '@/lib/doorsData';
 import { BrandName } from './Wordmark';
 
 interface Props {
@@ -89,7 +89,12 @@ const PropertyDetail: React.FC<Props> = ({ property, onClose, onRequest }) => {
           </p>
         ) : (
           <div className="flex flex-wrap items-center gap-5 mt-7 text-[#F8F6F3]/65 text-xs tracking-wide">
-            <span>{property.priceBand}</span>
+            <span>
+              {property.priceBand}
+              {euroEquivalent(property.priceBand) && (
+                <span className="ml-2 opacity-50 text-[11px]">{euroEquivalent(property.priceBand)}</span>
+              )}
+            </span>
             <span className="w-px h-3 bg-[#F8F6F3]/20" />
             <span>{property.bedrooms} bed</span>
             <span className="w-px h-3 bg-[#F8F6F3]/20" />
@@ -123,7 +128,7 @@ const PropertyDetail: React.FC<Props> = ({ property, onClose, onRequest }) => {
               <p className="text-[#F8F6F3]/65 text-sm font-light leading-relaxed max-w-xl">
                 This is part of our architectural showcase - a representation of the standard of home
                 DOORS is built to represent. It is not a live mandate and is not available to view or
-                purchase. Our represented homes are held privately and shared by introduction only.
+                purchase.
               </p>
             </div>
 

@@ -12,11 +12,12 @@ const Philosophy: React.FC = () => {
               The <BrandName tone="gold" className="!h-[1.35em]" /> Approach
             </p>
             <h2 className="font-serif text-3xl sm:text-5xl text-[#2C2C2C] font-light leading-[1.2]">
-              At the very top of the market, the best homes never reach it.
+              Every property opens somewhere. The question is how.
             </h2>
             <p className="text-[#2C2C2C]/70 text-base sm:text-lg font-light leading-relaxed mt-8">
-              No boards on the verge. No public show days. No address and price for everyone to browse.
-              The open market is built for volume. The extraordinary asks for discretion.
+              Private, limited or open. Most agencies market every home the same way and call it a
+              strategy. We decide with you, on the merits of your property and what you are trying
+              to achieve, and we tell you what each route costs you as well as what it reaches.
             </p>
           </div>
         </Reveal>
@@ -25,18 +26,18 @@ const Philosophy: React.FC = () => {
           {[
             {
               n: '01',
-              title: 'Access by Introduction',
-              body: 'Homes are shown to a small, registered circle - never advertised to the open market. You are introduced, not sold to.',
+              title: 'Informed Exposure',
+              body: 'Private, limited or open marketing, agreed with you before anything begins. The trade-offs in writing, your privacy constraints recorded, and a date set to review whether it is working.',
             },
             {
               n: '02',
-              title: 'A Private Collection',
-              body: 'A curated, mostly-unadvertised group of exceptional homes along the coast. Quality over quantity, always.',
+              title: 'A Considered Collection',
+              body: 'A small number of homes, each taken because we can genuinely add something. Some are represented privately. Others are marketed openly and well. Quality over quantity, always.',
             },
             {
               n: '03',
               title: 'Advisory, Not Sales',
-              body: 'Honest, numerate counsel from an advisor who knows the market - not a salesperson chasing a transaction.',
+              body: 'Honest, numerate counsel from an advisor who knows the market - not a salesperson chasing a transaction. Including when the honest answer is not the one that wins us the mandate.',
             },
           ].map((item, i) => (
             <Reveal key={item.n} delay={i * 120}>

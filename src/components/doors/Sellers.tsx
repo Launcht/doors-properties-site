@@ -8,11 +8,11 @@ interface Props {
 }
 
 const assurances = [
-  { t: 'No boards on the verge', d: 'Your address is never announced. Nothing is staked on the pavement for the street to read.' },
-  { t: 'No public show days', d: 'No open houses, no foot traffic, no strangers walking your home. Viewings are by invitation only.' },
-  { t: 'Never advertised, unless you ask', d: 'Your home does not appear on any portal, board or show day - no price or photographs left to be browsed - unless you explicitly ask us to advertise it.' },
-  { t: 'Shown to a known circle', d: 'Only registered, qualified buyers are introduced - and only those genuinely suited to your home.' },
-  { t: 'Land and architects, by introduction', d: 'For buyers seeking to build, we can introduce vacant opportunities and the architects best suited to their preferred aesthetic.' },
+  { t: 'Three routes, and you choose', d: 'Private, limited or open. Each one reaches a different audience and costs you a different amount of privacy. We set out both before you decide, rather than defaulting to whichever suits us.' },
+  { t: 'Your privacy constraints, written down', d: 'Whatever you will not have published - your address, your photographs, the fact of the sale itself - is recorded at the outset and holds for the length of the mandate.' },
+  { t: 'What we will actually do, agreed', d: 'The marketing you are getting is agreed in writing before it starts. No vague promise of exposure, and no quiet decision later to do less of it.' },
+  { t: 'A date to review it', d: 'We set a point to look at whether the approach is working and to change it if it is not. A route chosen in March is not automatically still right in June.' },
+  { t: 'The same standard either way', d: 'An openly marketed home gets the same care, the same presentation and the same reporting as a private one. Neither is the lesser mandate.' },
 ];
 
 const Sellers: React.FC<Props> = ({ onSeller }) => {
@@ -23,11 +23,12 @@ const Sellers: React.FC<Props> = ({ onSeller }) => {
           <div className="text-center max-w-2xl mx-auto mb-16 sm:mb-20">
             <p className="text-[#C9A961] text-[11px] tracking-[0.3em] uppercase mb-6">For Sellers</p>
             <h2 className="font-serif text-4xl sm:text-5xl text-[#F8F6F3] font-light leading-[1.15] mb-8">
-              Sold quietly, never advertised.
+              The right exposure is never assumed.
             </h2>
             <p className="text-[#F8F6F3]/65 text-base font-light leading-relaxed">
-              An exceptional home deserves judgement, not exposure. We represent a small number of homes
-              privately and introduce them, by hand, to the right buyer.
+              An exceptional home deserves judgement before it deserves exposure. Some sales are best
+              handled privately. Others deserve the widest audience the property can hold. We work out
+              which with you, agree it in writing, and then do it properly.
             </p>
           </div>
         </Reveal>

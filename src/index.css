@@ -1,5 +1,7 @@
 
-/* DOORS — Playfair Display (display) + Montserrat (body) loaded in index.html */
+/* DOORS - Playfair Display (display) + Montserrat (body), self-hosted.
+   See src/fonts.css for why they are not loaded from Google. */
+@import './fonts.css';
 
 
 @tailwind base;

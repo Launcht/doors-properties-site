@@ -3,6 +3,7 @@
 import * as React from "react"
 import { createContext, useContext, useEffect, useState } from "react"
 import { ThemeProviderProps } from "next-themes/dist/types"
+import { allowed } from "@/lib/consent"
 
 type Theme = "dark" | "light" | "system"
 
@@ -21,7 +22,9 @@ export function ThemeProvider({
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window !== "undefined") {
-      const savedTheme = localStorage.getItem("theme")
+      // Only read the stored preference if the visitor allowed preferences.
+      // Reading it regardless would make the cookie notice a decoration.
+      const savedTheme = allowed('preferences') ? localStorage.getItem("theme") : null
       return (savedTheme && (savedTheme === "dark" || savedTheme === "light" || savedTheme === "system")
         ? savedTheme
         : defaultTheme) as Theme
@@ -48,7 +51,14 @@ export function ThemeProvider({
   const value: ThemeContextType = {
     theme,
     setTheme: (theme: Theme) => {
-      localStorage.setItem("theme", theme)
+      // Applies either way; only persisted with permission.
+      if (allowed('preferences')) {
+        try {
+          localStorage.setItem("theme", theme)
+        } catch {
+          /* storage blocked - the theme still applies for this visit */
+        }
+      }
       setTheme(theme)
     },
   }

@@ -24,7 +24,7 @@ const Region: React.FC = () => {
               </h2>
               <p className="text-[#F8F6F3]/80 text-base font-light leading-relaxed mt-6 max-w-lg mx-auto">
                 One stretch of coast, known intimately. Based in George, we work the whole Garden Route
-                corridor - quietly, and on foot where it matters.
+                corridor - and on foot where it matters.
               </p>
             </div>
           </Reveal>

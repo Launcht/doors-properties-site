@@ -119,7 +119,7 @@ const EnquiryModal: React.FC<Props> = ({ open, onClose, kind, propertyRef, prope
                   ? `Regarding ${propertyTitle}. Nothing is shared without your consent.`
                   : kind === 'buyer'
                   ? 'Tell us a little. We hold every detail in confidence and reply personally.'
-                  : 'Selling an exceptional home asks for judgement, not advertising. Let us talk quietly first.'}
+                  : 'Selling an exceptional home asks for judgement before it asks for exposure. Let us work out the right approach together.'}
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-6">

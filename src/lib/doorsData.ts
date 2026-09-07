@@ -71,13 +71,13 @@ export const collection: DoorsProperty[] = [
     erfSqm: 1650,
     bedrooms: 4,
     bathrooms: 5,
-    summary: 'Direct frontage onto Robberg beach. Architect-designed, never advertised, shown by introduction only.',
+    summary: 'Direct frontage onto Robberg beach. Architect-designed, and represented on a restricted mandate at the owner\u2019s request.',
     image: 'https://d64gsuwffb70l.cloudfront.net/6a2dcec9cd468ee0fa9c747f_1781387151032_43caf4ef.jpg',
     video: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
     character: [
       'Direct, unbroken frontage onto Robberg beach.',
       'A single architect\u2019s hand across every line of the home.',
-      'Held entirely off the open market.',
+      'Represented on a restricted mandate, at the owner\u2019s request.',
     ],
     gallery: [
       'https://d64gsuwffb70l.cloudfront.net/6a2dcec9cd468ee0fa9c747f_1781387151032_43caf4ef.jpg',
@@ -221,7 +221,7 @@ export const collection: DoorsProperty[] = [
     bedrooms: 6,
     bathrooms: 6,
     private: true,
-    summary: 'A landmark Leisure Isle estate, held in absolute confidence for a single, known circle of buyers.',
+    summary: 'A landmark Leisure Isle estate. The owner has asked for a private mandate, so it is shown only to matched, registered buyers.',
     image: 'https://d64gsuwffb70l.cloudfront.net/6a2dcec9cd468ee0fa9c747f_1781387083220_1f4e79f8.png',
     video: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
     character: [
@@ -250,16 +250,76 @@ export const SELLERS_IMG = `${import.meta.env.BASE_URL}images/private-home-dusk-
 // Publicly-visible collection (excludes fully-private homes)
 export const publicCollection = collection.filter((p) => !p.private);
 
+// Bands below R10m added 07/09/2026 on client instruction: R10 million is not an
+// acceptance threshold, and a buyer looking below it should not find the form
+// telling them otherwise before anyone has spoken to them.
 export const budgetBands = [
+  'Up to R5m',
+  'R5m - R10m',
   'R10m - R15m',
   'R15m - R25m',
   'R25m - R40m',
   'R40m+',
 ];
 
-export const areas = ['Mossel Bay', 'George', 'Knysna', 'Plettenberg Bay', 'Across the corridor'];
+// Herolds Bay and Wilderness named by the client 06/09/2026. Sedgefield sits
+// between Wilderness and Knysna and is part of the corridor the brand claims,
+// so leaving it out of a list that names its neighbours would read as an
+// omission rather than a decision.
+export const areas = [
+  'Mossel Bay',
+  'George',
+  'Herolds Bay',
+  'Wilderness',
+  'Sedgefield',
+  'Knysna',
+  'Plettenberg Bay',
+  'Across the corridor',
+];
 
-export const timelines = ['Actively looking', 'Within 6 months', 'Within a year', 'Exploring quietly'];
+export const timelines = ['Actively looking', 'Within 6 months', 'Within a year', 'Still deciding'];
+
+// Indicative euro conversion for international buyers. Client instruction
+// 06/09/2026: euro alongside the rand, "small and not replacing the rand value".
+//
+// The rate is FIXED and DATED on purpose. A live FX call on a property site can
+// fail silently and leave a stale number looking authoritative; a stated rate
+// with a date beside it is honest about what it is. Refresh it when the site is
+// next touched, and never present a converted figure as a price.
+export const EUR_ZAR = 18.54;
+export const EUR_ZAR_AS_AT = '06/09/2026';
+
+/**
+ * Converts a rand price band or exact price to an indicative euro equivalent.
+ * Accepts 'R22m - R28m', 'R40m+' and 'R39 750 000'. Returns null when it cannot
+ * parse the input, so an unrecognised format shows nothing rather than a wrong
+ * number.
+ */
+export function euroEquivalent(rand: string): string | null {
+  if (!rand) return null;
+
+  const toEuro = (zar: number): string => {
+    const eur = zar / EUR_ZAR;
+    if (eur >= 1_000_000) {
+      const m = eur / 1_000_000;
+      return '\u20ac' + (m >= 10 ? m.toFixed(0) : m.toFixed(1)) + 'm';
+    }
+    return '\u20ac' + Math.round(eur / 1000) + 'k';
+  };
+
+  const millions = [...rand.matchAll(/R\s?([\d.]+)\s?m/gi)].map((m) => parseFloat(m[1]) * 1_000_000);
+  if (millions.length) {
+    const parts = millions.map(toEuro);
+    if (rand.includes('+')) return parts[0] + '+';
+    if (rand.trim().toLowerCase().startsWith('up to')) return 'up to ' + parts[0];
+    return parts.join(' - ');
+  }
+
+  const plain = rand.replace(/[^\d]/g, '');
+  if (plain.length >= 6) return toEuro(parseInt(plain, 10));
+
+  return null;
+}
 
 export const priorityOptions = [
   'Sea views',

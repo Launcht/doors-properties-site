@@ -27,17 +27,18 @@ const Collection: React.FC<Props> = ({ onView }) => {
             </p>
             <h2 className="font-serif text-4xl sm:text-5xl text-[#2C2C2C] font-light leading-[1.15]">
               {hasMandates
-                ? 'A few of the homes we quietly represent.'
+                ? 'A few of the homes we represent.'
                 : 'The calibre of home we are built to represent.'}
             </h2>
             <p className="text-[#2C2C2C]/70 text-base font-light leading-relaxed mt-7">
               {hasMandates
-                ? `Most of what we hold is never published. What appears here is shown without address or
-                   price - a short film and a few lines, an impression only. The full collection is shared
-                   by introduction.`
+                ? `Some of what we represent is marketed openly and appears here in full. Some is held
+                   privately at the owner's request and appears without address or price, or not at all.
+                   Which of the two applies is the seller's decision, agreed with us before anything begins.`
                 : `What follows is an architectural showcase, not a list of available homes. Each is an
-                   illustration of the standard DOORS represents along the Garden Route. Our represented
-                   homes are never published - they are held privately and shared by introduction only.`}
+                   illustration of the standard DOORS represents along the Garden Route. Real mandates
+                   appear here when their owners have agreed to open marketing, and are held back when
+                   they have not.`}
             </p>
           </div>
         </Reveal>
@@ -61,10 +62,10 @@ const Collection: React.FC<Props> = ({ onView }) => {
         <Reveal>
           <p className="text-center text-[#2C2C2C]/70 text-sm font-light italic mt-20 max-w-xl mx-auto">
             {hasMandates
-              ? `A number of homes are held entirely in private and never appear here. They are shown only
-                 within the registered circle.`
+              ? `Where a seller has asked for a private mandate, that home does not appear here at all. It
+                 is shown only to registered buyers whose brief genuinely matches it.`
               : `Homes marked as an architectural showcase are illustrative and are not available to view or
-                 purchase. Represented homes are shown only within the registered circle.`}
+                 purchase. They are shown to demonstrate the standard of work, nothing more.`}
           </p>
         </Reveal>
       </div>
