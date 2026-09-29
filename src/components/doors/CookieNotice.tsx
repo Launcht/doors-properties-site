@@ -14,10 +14,10 @@ import { CONSENT_EVENT, readConsent, writeConsent } from '@/lib/consent';
  *  2. It says what the site actually does, which at the moment is very little.
  *     Claiming to run analytics we do not run would be the same kind of
  *     unsupported claim Chris asked us to strip out of the copy.
- *  3. Nothing third-party loads before the answer, because there is nothing
- *     third-party left to load - the fonts were self-hosted in the same pass.
- *     A banner in front of a page that has already called out to Google is
- *     decoration.
+ *  3. Nothing that tracks loads before the answer. The one outside request is
+ *     the listings fetch to DOORS' own Supabase database, and the notice says
+ *     so (their brief v4, 15/09/2026, caught the old "no request to any other
+ *     company" line as untrue). Fonts are self-hosted.
  *
  * TWO FAULTS FOUND BY RENDERING IT AT 390px AND LOOKING, both fixed here and
  * both invisible to the typecheck:
@@ -68,10 +68,10 @@ const CookieNotice: React.FC = () => {
           </h2>
 
           <p className="text-[#F8F6F3]/70 text-sm font-light leading-relaxed">
-            This site does not track you. It runs no advertising scripts, sets no advertising
-            cookies, and makes no request to any other company while you read it. What it stores is
-            your sign-in session if you have one, your choice below, and, if you allow it, the
-            display preference you set.
+            This site does not track you. It runs no advertising or analytics scripts. To show the
+            homes, it fetches listings from our database, hosted by Supabase, and nothing is stored
+            on your device for that. What it stores is your sign-in session if you have one, your
+            choice below, and, if you allow it, the display preference you set.
           </p>
 
           {detail && (

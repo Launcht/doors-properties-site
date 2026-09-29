@@ -62,7 +62,7 @@ const Footer: React.FC<Props> = ({ onEnquire }) => {
 
             <div className="lg:text-right space-y-0.5 text-[#F8F6F3]/35">
               <p>© {new Date().getFullYear()} Doors (Pty) Ltd. All rights reserved.</p>
-              <p>Where a price is shown it is shown as a band, and any euro figure beside it is indicative only.</p>
+              <p>Where a price is shown it is shown in rand, as a band.</p>
               <p>Marketing approach is agreed per mandate: private, limited or open.</p>
             </div>
           </div>

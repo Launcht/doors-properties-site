@@ -1,5 +1,5 @@
 import React from 'react';
-import { DoorsProperty, euroEquivalent } from '@/lib/doorsData';
+import { DoorsProperty } from '@/lib/doorsData';
 
 interface Props {
   property: DoorsProperty;
@@ -54,11 +54,6 @@ const PropertyCard: React.FC<Props> = ({ property, onView }) => {
           <div className="flex items-center gap-5 mt-5 pt-5 border-t border-[#2C2C2C]/10 text-[#2C2C2C]/70 text-xs tracking-wide">
             <span>
               {property.priceBand}
-              {euroEquivalent(property.priceBand) && (
-                <span className="ml-2 text-[#2C2C2C]/45 text-[10px]">
-                  {euroEquivalent(property.priceBand)}
-                </span>
-              )}
             </span>
             <span className="w-px h-3 bg-[#2C2C2C]/15" />
             <span>{property.bedrooms} bed</span>

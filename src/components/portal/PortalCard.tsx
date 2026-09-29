@@ -1,5 +1,5 @@
 import React from 'react';
-import { DoorsProperty, euroEquivalent } from '@/lib/doorsData';
+import { DoorsProperty } from '@/lib/doorsData';
 import { Heart, Film } from 'lucide-react';
 
 interface Props {
@@ -41,9 +41,6 @@ const PortalCard: React.FC<Props> = ({ property: p, saved, onToggleSave, onOpen 
       <div className="flex items-center gap-3 mt-3 text-[#2C2C2C]/60 text-xs">
         <span>
           {p.exactPrice || p.priceBand}
-          {euroEquivalent(p.exactPrice || p.priceBand) && (
-            <span className="ml-2 opacity-50 text-[10px]">{euroEquivalent(p.exactPrice || p.priceBand)}</span>
-          )}
         </span>
         <span className="w-px h-3 bg-[#2C2C2C]/15" />
         <span>{p.bedrooms} bed</span>

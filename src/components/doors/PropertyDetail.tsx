@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { DoorsProperty, euroEquivalent } from '@/lib/doorsData';
+import { DoorsProperty } from '@/lib/doorsData';
 import { BrandName } from './Wordmark';
 
 interface Props {
@@ -91,9 +91,6 @@ const PropertyDetail: React.FC<Props> = ({ property, onClose, onRequest }) => {
           <div className="flex flex-wrap items-center gap-5 mt-7 text-[#F8F6F3]/65 text-xs tracking-wide">
             <span>
               {property.priceBand}
-              {euroEquivalent(property.priceBand) && (
-                <span className="ml-2 opacity-50 text-[11px]">{euroEquivalent(property.priceBand)}</span>
-              )}
             </span>
             <span className="w-px h-3 bg-[#F8F6F3]/20" />
             <span>{property.bedrooms} bed</span>

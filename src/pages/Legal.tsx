@@ -67,10 +67,11 @@ const Legal: React.FC = () => {
           <section>
             <h2 className="font-serif text-2xl text-[#2C2C2C] mb-3">Cookies and what this site stores</h2>
             <p>
-              This site runs no advertising scripts, sets no advertising cookies and has no
-              analytics tag of any kind. It also makes no request to any other company while you
-              read it. The brand fonts are served from this site rather than from Google, which is
-              a deliberate choice, not an accident of the build.
+              This site runs no advertising scripts, sets no cookies of its own before you choose,
+              and has no analytics tag of any kind. To show the homes on the page it fetches the
+              listings from our database, which Supabase hosts for us (see below). That request
+              carries what any web request carries, including your IP address, and stores nothing
+              on your device. The brand fonts and the photography are served from this site itself.
             </p>
             <ul className="mt-4 space-y-3 list-none">
               <li>
@@ -108,7 +109,8 @@ const Legal: React.FC = () => {
             <ul className="mt-4 space-y-3 list-none">
               <li>
                 <strong className="text-[#2C2C2C]/85 font-normal">Supabase</strong> holds the
-                registration and enquiry records and the accounts behind the portal and the studio.
+                property listings the site displays, the registration and enquiry records, and the
+                accounts behind the portal and the studio.
                 The database is hosted in the United Kingdom, so information you give us is stored
                 outside South Africa.
               </li>
@@ -118,8 +120,9 @@ const Legal: React.FC = () => {
                 made from.
               </li>
               <li>
-                <strong className="text-[#2C2C2C]/85 font-normal">Nobody else.</strong> The
-                photography, the fonts and everything else you see are served from this site itself.
+                <strong className="text-[#2C2C2C]/85 font-normal">Nobody else.</strong> Apart
+                from the listings, the photography, the fonts and everything else you see are served
+                from this site itself.
               </li>
             </ul>
             <p className="mt-4">
@@ -151,10 +154,8 @@ const Legal: React.FC = () => {
           <section>
             <h2 className="font-serif text-2xl text-[#2C2C2C] mb-3">Prices on this site</h2>
             <p>
-              Where a price appears publicly it is shown as a band rather than an exact figure. Any
-              euro amount beside a rand figure is an indicative conversion for international buyers,
-              calculated at a fixed rate recorded in the site and not updated daily. It is not a
-              price, and nothing on this site is an offer.
+              Where a price appears publicly it is shown in rand, as a band rather than an exact
+              figure. It is not a price, and nothing on this site is an offer.
             </p>
             <p className="mt-4">
               Homes marked as an architectural showcase are illustrative. They are not available to

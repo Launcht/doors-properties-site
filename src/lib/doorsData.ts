@@ -279,47 +279,9 @@ export const areas = [
 
 export const timelines = ['Actively looking', 'Within 6 months', 'Within a year', 'Still deciding'];
 
-// Indicative euro conversion for international buyers. Client instruction
-// 06/09/2026: euro alongside the rand, "small and not replacing the rand value".
-//
-// The rate is FIXED and DATED on purpose. A live FX call on a property site can
-// fail silently and leave a stale number looking authoritative; a stated rate
-// with a date beside it is honest about what it is. Refresh it when the site is
-// next touched, and never present a converted figure as a price.
-export const EUR_ZAR = 18.54;
-export const EUR_ZAR_AS_AT = '06/09/2026';
-
-/**
- * Converts a rand price band or exact price to an indicative euro equivalent.
- * Accepts 'R22m - R28m', 'R40m+' and 'R39 750 000'. Returns null when it cannot
- * parse the input, so an unrecognised format shows nothing rather than a wrong
- * number.
- */
-export function euroEquivalent(rand: string): string | null {
-  if (!rand) return null;
-
-  const toEuro = (zar: number): string => {
-    const eur = zar / EUR_ZAR;
-    if (eur >= 1_000_000) {
-      const m = eur / 1_000_000;
-      return '\u20ac' + (m >= 10 ? m.toFixed(0) : m.toFixed(1)) + 'm';
-    }
-    return '\u20ac' + Math.round(eur / 1000) + 'k';
-  };
-
-  const millions = [...rand.matchAll(/R\s?([\d.]+)\s?m/gi)].map((m) => parseFloat(m[1]) * 1_000_000);
-  if (millions.length) {
-    const parts = millions.map(toEuro);
-    if (rand.includes('+')) return parts[0] + '+';
-    if (rand.trim().toLowerCase().startsWith('up to')) return 'up to ' + parts[0];
-    return parts.join(' - ');
-  }
-
-  const plain = rand.replace(/[^\d]/g, '');
-  if (plain.length >= 6) return toEuro(parseInt(plain, 10));
-
-  return null;
-}
+// Prices are rand only. The indicative euro figure added 06/09/2026 was
+// removed at the client's request in their brief v4 (15/09/2026): a stale
+// conversion misleads, and no replacement conversion feature is wanted.
 
 export const priorityOptions = [
   'Sea views',
