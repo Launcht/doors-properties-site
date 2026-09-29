@@ -33,7 +33,7 @@ const Legal: React.FC = () => {
       <div className="max-w-[760px] mx-auto px-6 sm:px-10 py-20">
         <h1 className="font-serif text-5xl font-light mb-3">Privacy &amp; Legal</h1>
         <p className="text-[#2C2C2C]/70 text-sm mb-14">
-          Doors (Pty) Ltd, George, Western Cape. Last reviewed 7 September 2026.
+          Doors (Pty) Ltd, George, Western Cape. Last reviewed 29 September 2026.
         </p>
 
         <div className="space-y-12 text-[#2C2C2C]/65 text-[15px] font-light leading-relaxed">
