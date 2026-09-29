@@ -8,7 +8,7 @@ interface Props {
 }
 
 const assurances = [
-  { t: 'The route is yours to choose', d: 'A private introduction to a matched few, a selective release, or a full open-market campaign. Whichever serves the property and serves you.' },
+  { t: 'The route is yours to choose', d: 'A private approach to a small number of suitable buyers, a selective release, or a full open-market campaign. Whichever serves the property and serves you.' },
   { t: 'You see the trade-off first', d: 'What each route reaches, what it asks of your privacy, and what it is likely to do to price and to time on market. Before you commit, not afterwards.' },
   { t: 'Your privacy, written down', d: 'Whatever you will not have published - your address, your photographs, the fact of the sale itself - is recorded at the outset and holds for the length of the mandate.' },
   { t: 'The plan in writing, and a date to review it', d: 'You know exactly what marketing you have, and we set a point to look at how it is working and change the approach if the market says we should.' },

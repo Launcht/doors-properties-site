@@ -60,11 +60,11 @@ const PortalAuth: React.FC = () => {
           <div>
             <p className="text-[#C9A961] text-[11px] tracking-[0.3em] uppercase mb-5">The Buyer Portal</p>
             <h2 className="font-serif text-5xl text-[#F8F6F3] font-light leading-tight">
-              A private door,<br />for our circle alone.
+              Your brief, and the<br />homes we share with you.
             </h2>
             <p className="text-[#F8F6F3]/70 text-sm font-light leading-relaxed mt-6 max-w-md">
-              Sign in to view the full, unadvertised collection and arrange introductions. Your account is
-              secure and held in confidence.
+              Sign in to keep your brief up to date and see any home we have shared with you. Your account
+              is secure and held in confidence.
             </p>
           </div>
         </div>
@@ -83,8 +83,8 @@ const PortalAuth: React.FC = () => {
             </h1>
             <p className="text-[#2C2C2C]/70 text-sm leading-relaxed mb-8">
               {mode === 'signin'
-                ? 'Sign in to enter the private collection.'
-                : 'A secure account for registered buyers. Already introduced to DOORS? Begin here.'}
+                ? 'Sign in to your account.'
+                : 'A secure account for buyers who have registered a brief with DOORS.'}
             </p>
 
             <div className="flex border border-[#2C2C2C]/15 mb-8">

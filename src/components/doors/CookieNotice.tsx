@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { CONSENT_EVENT, readConsent, writeConsent } from '@/lib/consent';
 
 /**
@@ -28,12 +28,25 @@ import { CONSENT_EVENT, readConsent, writeConsent } from '@/lib/consent';
  *  - "Allow all" and "Save my choices" were both solid gold, so two buttons
  *    competed for the same job. Only one is gold at a time now: Allow all until
  *    the visitor starts choosing, Save my choices once they have.
+ *
+ * THEIR BRIEF v4 (15/09/2026) caught the card still covering part of /legal
+ * before a choice, so the privacy notice could not be read in full before
+ * deciding. Two changes, checked by scrolling /legal to the end at laptop and
+ * phone sizes with the card open:
+ *
+ *  - While the card is open the page gets bottom padding equal to the card's
+ *    height, on every page, so nothing is ever trapped underneath it.
+ *  - On /legal itself the card shrinks to one line and the buttons, because
+ *    the page it would otherwise repeat is the thing being read.
  */
 const CookieNotice: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [detail, setDetail] = useState(false);
   const [preferences, setPreferences] = useState(true);
   const [analytics, setAnalytics] = useState(false);
+  const { pathname } = useLocation();
+  const onLegal = pathname === '/legal';
+  const card = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setOpen(readConsent() === null);
@@ -41,6 +54,22 @@ const CookieNotice: React.FC = () => {
     window.addEventListener(CONSENT_EVENT, onChange);
     return () => window.removeEventListener(CONSENT_EVENT, onChange);
   }, []);
+
+  // Reserve the card's height at the foot of the page. Removed on a choice.
+  useEffect(() => {
+    const el = card.current;
+    if (!open || !el) return;
+    const pad = () => {
+      document.body.style.paddingBottom = `${el.offsetHeight}px`;
+    };
+    pad();
+    const ro = new ResizeObserver(pad);
+    ro.observe(el);
+    return () => {
+      ro.disconnect();
+      document.body.style.paddingBottom = '';
+    };
+  }, [open, onLegal, detail]);
 
   if (!open) return null;
 
@@ -56,6 +85,7 @@ const CookieNotice: React.FC = () => {
 
   return (
     <div
+      ref={card}
       role="dialog"
       aria-modal="false"
       aria-labelledby="cookie-notice-heading"
@@ -64,15 +94,21 @@ const CookieNotice: React.FC = () => {
       <div className="mx-auto max-w-3xl max-h-[85vh] flex flex-col bg-[#0A0908] border border-[#C9A961]/35 text-[#F8F6F3] shadow-2xl">
         <div className="overflow-y-auto p-6 sm:p-8 pb-0">
           <h2 id="cookie-notice-heading" className="font-serif text-xl sm:text-2xl font-light mb-3">
-            Before you go any further
+            {onLegal ? 'Your cookie choice' : 'Before you go any further'}
           </h2>
 
-          <p className="text-[#F8F6F3]/70 text-sm font-light leading-relaxed">
-            This site does not track you. It runs no advertising or analytics scripts. To show the
-            homes, it fetches listings from our database, hosted by Supabase, and nothing is stored
-            on your device for that. What it stores is your sign-in session if you have one, your
-            choice below, and, if you allow it, the display preference you set.
-          </p>
+          {onLegal ? (
+            <p className="text-[#F8F6F3]/70 text-sm font-light leading-relaxed">
+              Read the notice on this page first if you like. Your choice is here when you are ready.
+            </p>
+          ) : (
+            <p className="text-[#F8F6F3]/70 text-sm font-light leading-relaxed">
+              This site does not track you. It runs no advertising or analytics scripts. To show the
+              homes, it fetches listings from our database, hosted by Supabase, and nothing is stored
+              on your device for that. What it stores is your sign-in session if you have one, your
+              choice below, and, if you allow it, the display preference you set.
+            </p>
+          )}
 
           {detail && (
             <div className="mt-6 space-y-5 border-t border-[#F8F6F3]/10 pt-6">
@@ -164,12 +200,14 @@ const CookieNotice: React.FC = () => {
               </button>
             )}
 
-            <Link
-              to="/legal"
-              className="sm:ml-auto text-[#F8F6F3]/45 text-[11px] tracking-[0.15em] uppercase hover:text-[#C9A961] transition-colors py-3"
-            >
-              Privacy notice
-            </Link>
+            {!onLegal && (
+              <Link
+                to="/legal"
+                className="sm:ml-auto text-[#F8F6F3]/45 text-[11px] tracking-[0.15em] uppercase hover:text-[#C9A961] transition-colors py-3"
+              >
+                Privacy notice
+              </Link>
+            )}
           </div>
         </div>
       </div>

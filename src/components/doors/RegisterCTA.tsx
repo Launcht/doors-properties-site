@@ -44,8 +44,8 @@ const RegisterCTA: React.FC<Props> = ({ onBuyer, onSeller }) => {
               <p className="text-[10px] tracking-[0.25em] uppercase text-[#C9A961] mb-4">For Buyers</p>
               <h3 className="font-serif text-2xl mb-3">Register your brief</h3>
               <p className="text-[#F8F6F3]/60 group-hover:text-[#2C2C2C]/70 text-sm font-light">
-                Tell us what you are looking for and be told about the homes that match, including the
-                ones held back from the open market.
+                Tell us what you are looking for. We keep your brief on record and contact you if a home
+                that suits it comes to us.
               </p>
             </button>
           </div>

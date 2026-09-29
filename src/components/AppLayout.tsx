@@ -31,7 +31,7 @@ const AppLayout: React.FC = () => {
   return (
     <div className="bg-[#F8F6F3] font-sans text-[#2C2C2C] antialiased" style={{ fontFamily: 'Inter, sans-serif' }}>
       <Navbar onEnquire={openBuyer} />
-      <Hero onEnquire={openBuyer} />
+      <Hero onSeller={openSeller} />
       <Philosophy />
       <Collection onView={viewProperty} />
       <Region />

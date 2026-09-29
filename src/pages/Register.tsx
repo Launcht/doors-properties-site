@@ -63,9 +63,9 @@ const Register: React.FC = () => {
         <div className="relative h-full flex flex-col justify-between p-12">
           <Link to="/" aria-label="DOORS home"><Wordmark tone="gold" size="xl" /></Link>
           <div>
-            <p className="text-[#C9A961] text-[11px] tracking-[0.3em] uppercase mb-5">Matched, Not Mailed</p>
+            <p className="text-[#C9A961] text-[11px] tracking-[0.3em] uppercase mb-5">Your Brief, On Record</p>
             <h2 className="font-serif text-5xl text-[#F8F6F3] font-light leading-tight">
-              Told about the right<br />home, not every home.
+              Tell us what<br />you are looking for.
             </h2>
             <p className="text-[#F8F6F3]/70 text-sm font-light leading-relaxed mt-6 max-w-md">
               Every detail you share is held in confidence. We reply personally - never with automated noise.

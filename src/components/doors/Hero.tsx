@@ -2,10 +2,10 @@ import React from 'react';
 import { HERO_IMG } from '@/lib/doorsData';
 
 interface Props {
-  onEnquire: () => void;
+  onSeller: () => void;
 }
 
-const Hero: React.FC<Props> = ({ onEnquire }) => {
+const Hero: React.FC<Props> = ({ onSeller }) => {
   const scrollDown = () => {
     const el = document.getElementById('philosophy');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -20,7 +20,7 @@ const Hero: React.FC<Props> = ({ onEnquire }) => {
   };
 
   return (
-    <section className="relative h-screen min-h-[640px] w-full overflow-hidden">
+    <section className="relative min-h-screen w-full overflow-hidden">
       <img
         src={HERO_IMG}
         alt="A Garden Route estate at golden hour"
@@ -35,7 +35,10 @@ const Hero: React.FC<Props> = ({ onEnquire }) => {
       {/* right-side scrim so the white headline reads cleanly over the bright ocean */}
       <div className="absolute inset-0 bg-gradient-to-l from-[#2C2C2C]/75 via-[#2C2C2C]/25 to-transparent" />
 
-      <div className="relative h-full flex flex-col items-end justify-center px-6 sm:px-10 lg:px-20">
+      {/* The top padding keeps the content below the fixed header. At a laptop
+          height the centred block used to rise under the nav, and the eyebrow
+          line ran into the Enquire button (their brief v4, 15/09/2026). */}
+      <div className="relative min-h-screen flex flex-col items-end justify-center px-6 sm:px-10 lg:px-20 pt-32 pb-24 sm:pt-36">
         <div className="max-w-xl text-right" style={{ textShadow: '0 2px 24px rgba(10,9,8,0.65)' }}>
           <p className="text-[#F8F6F3]/90 text-[11px] sm:text-xs tracking-[0.4em] uppercase mb-8 animate-[fadeIn_1.4s_ease]">
             For owners of distinctive Garden Route homes
@@ -52,8 +55,11 @@ const Hero: React.FC<Props> = ({ onEnquire }) => {
           </p>
         </div>
         <div className="mt-10 flex flex-col items-end gap-4 animate-[fadeIn_2.6s_ease]">
+          {/* The seller path. Until 29/09/2026 this opened the BUYER form, which
+              their brief v4 caught: "Speak to us about your home" led to buyer
+              registration. */}
           <button
-            onClick={onEnquire}
+            onClick={onSeller}
             className="text-[11px] tracking-[0.25em] uppercase text-[#2C2C2C] bg-[#C9A961] px-9 py-4 hover:bg-[#d9bc7c] transition-colors"
             style={{ boxShadow: '0 2px 24px rgba(10,9,8,0.35)' }}
           >

@@ -73,14 +73,14 @@ const SignIn: React.FC = () => {
         </div>
 
         <div className="text-center mb-10">
-          <p className="doors-label text-gold text-[10px] mb-5">By Introduction</p>
+          <p className="doors-label text-gold text-[10px] mb-5">Buyer Portal</p>
           <h1 className="font-serif text-3xl sm:text-4xl text-ivory font-normal mb-4">
-            {mode === 'signin' ? 'Welcome back.' : 'Join the circle.'}
+            {mode === 'signin' ? 'Welcome back.' : 'Create your account.'}
           </h1>
           <p className="text-stone text-sm leading-relaxed font-light">
             {mode === 'signin'
               ? 'Sign in and we will take you to the right door.'
-              : 'Register as a buyer to unlock the full detail of the collection.'}
+              : 'Register your brief, and see any home we share with you in one place.'}
           </p>
         </div>
 
