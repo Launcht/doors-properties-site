@@ -45,7 +45,8 @@ const CookieNotice: React.FC = () => {
   const [preferences, setPreferences] = useState(true);
   const [analytics, setAnalytics] = useState(false);
   const { pathname } = useLocation();
-  const onLegal = pathname === '/legal';
+  // The static host serves /legal as /legal/ (a real folder, so it answers 200).
+  const onLegal = pathname.replace(/\/+$/, '') === '/legal';
   const card = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
