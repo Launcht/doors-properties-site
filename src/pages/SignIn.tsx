@@ -53,6 +53,10 @@ const SignIn: React.FC = () => {
       } else {
         const { error } = await signUp(email, password, { full_name: name, phone });
         if (error) { setError(error); return; }
+        // A team member registering their own login is not a buyer enquiry. Only a
+        // positive answer from the engine skips the record, so a failed check still saves it.
+        const { data } = await engine<{ is_team: boolean }>('whoami');
+        if (data?.is_team) { navigate('/studio'); return; }
         captureLead({ kind: 'buyer', name, email, phone, source: 'signin-register' });
         navigate('/portal');
       }

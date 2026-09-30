@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
+import { engine } from '@/lib/engineApi';
 import { captureLead } from '@/lib/leads';
 import { budgetBands, areas, HERO_IMG } from '@/lib/doorsData';
 import { Wordmark } from './Wordmark';
@@ -41,7 +42,12 @@ const PortalAuth: React.FC = () => {
         if (error) {
           setError(error);
         } else {
-          captureLead({ kind: 'buyer', name, email, phone, budget_band: budget, area_interest: area, source: 'portal-signup' });
+          // A team member registering their own login is not a buyer enquiry. Only a
+          // positive answer from the engine skips the record, so a failed check still saves it.
+          const { data } = await engine<{ is_team: boolean }>('whoami');
+          if (!data?.is_team) {
+            captureLead({ kind: 'buyer', name, email, phone, budget_band: budget, area_interest: area, source: 'portal-signup' });
+          }
         }
       }
     } finally {
