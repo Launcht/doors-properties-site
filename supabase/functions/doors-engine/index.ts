@@ -65,7 +65,7 @@ Deno.serve(async (req) => {
 
     switch (action) {
       case 'overview': {
-        const [properties, settings, team, requests, outreach, buyers, introductions] = await Promise.all([
+        const [properties, settings, team, requests, outreach, buyers, introductions, enquiries] = await Promise.all([
           admin.from('doors_properties').select('*').order('created_at', { ascending: false }),
           admin.from('doors_settings').select('*').eq('id', 1).maybeSingle(),
           admin.from('doors_team').select('*').order('created_at', { ascending: true }),
@@ -73,6 +73,7 @@ Deno.serve(async (req) => {
           admin.from('doors_outreach').select('*').order('created_at', { ascending: false }),
           admin.from('profiles').select('*').order('created_at', { ascending: false }),
           admin.from('doors_private_introductions').select('*'),
+          admin.from('doors_enquiries').select('*').order('created_at', { ascending: false }),
         ]);
         return json({
           me: { id: teamRow.id, full_name: teamRow.full_name, email: teamRow.email, role: teamRow.role },
@@ -84,7 +85,24 @@ Deno.serve(async (req) => {
           outreach: outreach.data ?? [],
           buyers: buyers.data ?? [],
           introductions: introductions.data ?? [],
+          enquiries: enquiries.data ?? [],
         });
+      }
+
+      case 'update_enquiry': {
+        const STATUSES = ['new', 'contacted', 'in_progress', 'closed', 'staff'];
+        const row: Record<string, unknown> = {};
+        if (payload.status !== undefined) {
+          if (!STATUSES.includes(payload.status)) return json({ error: 'bad_status' }, 400);
+          row.status = payload.status;
+          row.handled_at = payload.status === 'new' ? null : new Date().toISOString();
+        }
+        if (payload.owner_id !== undefined) row.owner_id = payload.owner_id || null;
+        if (payload.team_note !== undefined) row.team_note = payload.team_note || null;
+        if (!Object.keys(row).length) return json({ error: 'nothing_to_update' }, 400);
+        const { error } = await admin.from('doors_enquiries').update(row).eq('id', payload.id);
+        if (error) return json({ error: error.message }, 400);
+        return json({ ok: true });
       }
 
       case 'save_property': {

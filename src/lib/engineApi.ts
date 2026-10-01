@@ -82,6 +82,30 @@ export interface EngineSettings {
 
 export interface EngineIntro { id: string; user_id: string; property_ref: string }
 
+export type EnquiryStatus = 'new' | 'contacted' | 'in_progress' | 'closed' | 'staff';
+
+export interface EngineEnquiry {
+  id: string;
+  kind: string;
+  name?: string | null;
+  email?: string | null;
+  phone?: string | null;
+  message?: string | null;
+  budget_band?: string | null;
+  area_interest?: string | null;
+  property_ref?: string | null;
+  source?: string | null;
+  contact_consent?: boolean;
+  consented_at?: string | null;
+  viewing_requested?: boolean;
+  status: EnquiryStatus;
+  owner_id?: string | null;
+  team_note?: string | null;
+  handled_at?: string | null;
+  property_category?: string | null;
+  created_at: string;
+}
+
 export interface Overview {
   me: EngineTeam;
   isAdmin: boolean;
@@ -92,6 +116,7 @@ export interface Overview {
   outreach: EngineOutreach[];
   buyers: EngineBuyer[];
   introductions: EngineIntro[];
+  enquiries: EngineEnquiry[];
 }
 
 // ---------------------------------------------------------------------------
@@ -143,6 +168,7 @@ const demoOverview: Overview = {
   ],
   buyers: demoBuyers,
   introductions: [],
+  enquiries: [],
 };
 
 function demoEngine<T>(action: string): { data?: T; error?: string } {

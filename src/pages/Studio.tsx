@@ -7,12 +7,13 @@ import StudioAuth from '@/components/studio/StudioAuth';
 import { Wordmark } from '@/components/doors/Wordmark';
 import ListingsTab from '@/components/studio/ListingsTab';
 import BuyersTab from '@/components/studio/BuyersTab';
+import EnquiriesTab from '@/components/studio/EnquiriesTab';
 import PipelineTab from '@/components/studio/PipelineTab';
 import MarketingTab from '@/components/studio/MarketingTab';
 import SettingsTab from '@/components/studio/SettingsTab';
-import { LayoutGrid, Home, Users, GitBranch, Megaphone, Settings, Lock, Unlock, LogOut } from 'lucide-react';
+import { LayoutGrid, Inbox, Home, Users, GitBranch, Megaphone, Settings, Lock, Unlock, LogOut } from 'lucide-react';
 
-type Tab = 'overview' | 'listings' | 'buyers' | 'pipeline' | 'marketing' | 'settings';
+type Tab = 'overview' | 'enquiries' | 'listings' | 'buyers' | 'pipeline' | 'marketing' | 'settings';
 
 const Studio: React.FC = () => {
   useSeo({ title: 'Studio | DOORS Properties', description: 'The DOORS team studio.', noindex: true });
@@ -46,6 +47,7 @@ const Studio: React.FC = () => {
 
   const nav: { key: Tab; label: string; icon: React.ReactNode; admin?: boolean }[] = [
     { key: 'overview', label: 'Overview', icon: <LayoutGrid size={16} /> },
+    { key: 'enquiries', label: 'Enquiries', icon: <Inbox size={16} /> },
     { key: 'listings', label: 'Listings', icon: <Home size={16} /> },
     { key: 'buyers', label: 'Buyers', icon: <Users size={16} /> },
     { key: 'pipeline', label: 'Pipeline', icon: <GitBranch size={16} /> },
@@ -94,6 +96,7 @@ const Studio: React.FC = () => {
 
         <div className="px-6 sm:px-10 py-8 max-w-[1200px]">
           {tab === 'overview' && <OverviewTab ov={ov} go={setTab} />}
+          {tab === 'enquiries' && <EnquiriesTab enquiries={ov.enquiries ?? []} team={ov.team} reload={load} />}
           {tab === 'listings' && <ListingsTab properties={ov.properties} reload={load} />}
           {tab === 'buyers' && <BuyersTab buyers={ov.buyers} properties={ov.properties} introductions={ov.introductions} reload={load} />}
           {tab === 'pipeline' && <PipelineTab properties={ov.properties} requests={ov.requests} buyers={ov.buyers} reload={load} />}
@@ -107,8 +110,10 @@ const Studio: React.FC = () => {
 
 const OverviewTab: React.FC<{ ov: Overview; go: (t: Tab) => void }> = ({ ov, go }) => {
   const openReqs = ov.requests.filter((r) => r.status !== 'closed').length;
+  const newEnquiries = (ov.enquiries ?? []).filter((e) => e.status === 'new').length;
   const demoCount = ov.properties.filter((p) => p.is_demo).length;
   const cards = [
+    { label: 'New website enquiries', value: newEnquiries, tab: 'enquiries' as Tab },
     { label: 'Homes in the collection', value: ov.properties.length, tab: 'listings' as Tab },
     { label: 'Qualified buyers', value: ov.buyers.length, tab: 'buyers' as Tab },
     { label: 'Open viewing requests', value: openReqs, tab: 'pipeline' as Tab },
@@ -118,7 +123,7 @@ const OverviewTab: React.FC<{ ov: Overview; go: (t: Tab) => void }> = ({ ov, go 
     <div>
       <h1 className="font-serif text-3xl font-light mb-1">Good day, {(ov.me.full_name || ov.me.email || '').split(' ')[0]}</h1>
       <p className="text-[#F8F6F3]/45 text-sm mb-8">The whole of DOORS, behind the curtain.</p>
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
         {cards.map((c) => (
           <button key={c.label} onClick={() => go(c.tab)} className="bg-[#262626] border border-[#F8F6F3]/8 p-5 text-left hover:border-[#C9A961]/40 transition-colors">
             <p className="font-serif text-4xl text-[#C9A961]">{c.value}</p>
