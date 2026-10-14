@@ -175,6 +175,10 @@ const Legal: React.FC = () => {
               holds Fidelity Fund Certificate 202614020700000. C Dreyer is the responsible
               practitioner.
             </p>
+            <p className="mt-4">
+              Each practitioner at DOORS holds their own Fidelity Fund Certificate: C Dreyer,
+              202523021700000, and C Schreiber, 202634074690000.
+            </p>
           </section>
         </div>
 
