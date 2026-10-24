@@ -8,6 +8,13 @@ import type { DoorsProperty } from '@/lib/doorsData';
 
 const BASE = import.meta.env.BASE_URL;
 
+// The columns the site may read. exact_price, address, owner_id and pipeline_stage are not
+// granted to the browser (migration 0005), so asking for '*' would be refused. The exact
+// price and address of a home a buyer was introduced to come from doors_introduced_details().
+const PUBLIC_COLUMNS =
+  'id,ref,title,area,price_band,size_sqm,erf_sqm,bedrooms,bathrooms,summary,image_url,' +
+  'video_url,character,gallery,specifics,discretion_level,status,is_published,is_demo,created_at';
+
 // Local images are stored relative (e.g. "images/foo.jpg"); resolve against the
 // app base path. Remote (http) images pass through untouched.
 const resolveImg = (u?: string | null): string => {
@@ -46,7 +53,7 @@ export function usePublicCollection() {
     let active = true;
     supabase
       .from('doors_properties')
-      .select('*')
+      .select(PUBLIC_COLUMNS)
       .eq('is_published', true)
       .eq('discretion_level', 'public-curated')
       .order('created_at', { ascending: false })
@@ -65,9 +72,12 @@ export function usePublicCollection() {
 // Everything a signed-in buyer may see: public-curated + any private homes they
 // have been introduced to. RLS filters the rows; we just map them.
 export async function fetchVisibleListings(): Promise<DoorsProperty[]> {
-  const { data } = await supabase
-    .from('doors_properties')
-    .select('*')
-    .order('created_at', { ascending: false });
-  return (data ?? []).map(mapRow);
+  const [{ data }, { data: details }] = await Promise.all([
+    supabase.from('doors_properties').select(PUBLIC_COLUMNS).order('created_at', { ascending: false }),
+    supabase.rpc('doors_introduced_details'),
+  ]);
+  const byRef = new Map<string, Record<string, any>>(
+    ((details as Record<string, any>[] | null) ?? []).map((d) => [d.ref, d]),
+  );
+  return (data ?? []).map((r: Record<string, any>) => mapRow({ ...r, ...(byRef.get(r.ref) ?? {}) }));
 }
